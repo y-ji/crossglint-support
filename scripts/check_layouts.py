@@ -47,7 +47,11 @@ def validate(page, label, is_home, wide):
         assert copy["x"] + copy["width"] <= art["x"] + 3, (
             f"{label}: hero must put introduction to left of brand art"
         )
-        assert abs(copy["y"] - art["y"]) < 10
+        # Intro is intentionally vertically centered beside the logo.
+        assert copy["y"] >= art["y"] - 3
+        assert copy["y"] + copy["height"] <= art["y"] + art["height"] + 3, (
+            f"{label}: brand introduction extends beyond the hero art"
+        )
         assert product["x"] + product["width"] <= contact["x"] + 4, (
             f"{label}: cards are not side by side"
         )
