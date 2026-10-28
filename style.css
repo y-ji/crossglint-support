@@ -1,1 +1,134 @@
-:root{color-scheme:light;--paper:#faf8f3;--ink:#263a36;--muted:#5a6a66;--accent:#247f6d;--line:#dfe5df}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.8 -apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}header,main,footer{width:min(820px,calc(100% - 38px));margin:auto}header{padding:30px 0 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:15px}header a{color:var(--accent);text-decoration:none}.brand{font-size:1.08rem;font-weight:800;letter-spacing:.07em}nav{display:flex;gap:18px;font-size:.91rem}main{padding:46px 0 64px}h1{font-size:clamp(1.8rem,5vw,2.55rem);letter-spacing:-.025em;line-height:1.35}h2{font-size:1.26rem;margin:36px 0 8px}p{margin:12px 0}p.lead{font-size:1.1rem;color:var(--muted)}.card{border:1px solid var(--line);background:#fff;border-radius:18px;padding:26px;margin:25px 0}.meta{color:var(--muted);font-size:.91rem}.action{display:inline-block;color:white;background:var(--accent);text-decoration:none;border-radius:11px;padding:11px 18px;font-weight:700}a{color:var(--accent)}footer{border-top:1px solid var(--line);padding:18px 0 32px;color:var(--muted);font-size:.85rem}ul{padding-left:1.3em}li{margin:9px 0}hr{border:0;border-top:1px solid var(--line);margin:42px 0}@media(max-width:550px){header{display:block;padding-top:20px}nav{margin-top:12px;gap:12px;flex-wrap:wrap}main{padding-top:24px}.card{padding:19px}}
+/* CROSSGLINT Brand Guidelines v1.1-draft: Midnight Navy / Teal / Apricot.
+   Brand artwork is copied unmodified from crossglint-brand's approved PNG exports.
+   No fonts, scripts, tracking pixels or third-party resources. */
+:root {
+  color-scheme: light;
+  --navy: #0f172a;
+  --navy-deep: #091225;
+  --teal: #14b8a6;
+  --apricot: #ff9f6b;
+  --gold: #f4d186;
+  --ice: #f1f5f9;
+  --ink: #17253b;
+  --body-ink: #344258;
+  --muted: #57677d;
+  --line: #dbe3eb;
+  --white: #ffffff;
+  --radius: 18px;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--body-ink); background: var(--ice); font-size: 16px; line-height: 1.85; }
+a { color: #086f72; text-underline-offset: .2em; }
+a:hover { color: #065759; }
+a:focus-visible { outline: 3px solid var(--apricot); outline-offset: 4px; border-radius: 4px; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { color: var(--ink); line-height: 1.4; letter-spacing: -.025em; }
+h1 { font-size: clamp(1.8rem, 4.6vw, 2.65rem); }
+h2 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
+h3 { font-size: 1.4rem; }
+p { margin-bottom: 1em; }
+.site-header { background: var(--navy); border-bottom: 1px solid #253b56; }
+.site-header-inner, .page-content, .site-footer-inner { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
+.site-header-inner { min-height: 96px; display: flex; gap: 24px; align-items: center; justify-content: space-between; }
+.brand-lockup { display: inline-flex; gap: 13px; align-items: center; min-width: 0; text-decoration: none; color: white; }
+.brand-lockup:hover { color: white; }
+.brand-icon { display: block; border-radius: 50%; width: 52px; height: 52px; object-fit: contain; }
+.brand-lockup-text { display: grid; gap: 1px; line-height: 1.1; }
+.brand-lockup-text strong { color: white; font-size: 1.16rem; font-weight: 790; letter-spacing: .15em; }
+.brand-lockup-text small { color: #a8bdcc; font-size: .59rem; letter-spacing: .19em; white-space: nowrap; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; }
+.site-nav a { display: inline-block; color: #cdd8e5; text-decoration: none; font-size: .9rem; padding: 8px 0; border-bottom: 2px solid transparent; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: white; border-bottom-color: var(--teal); }
+.page-content { padding: 34px 0 72px; }
+.hero { overflow: hidden; border-radius: 20px; background: white; border: 1px solid var(--line); box-shadow: 0 14px 38px rgba(15,23,42,.065); }
+.hero-art { background: var(--navy-deep); }
+.hero-art img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover; }
+.hero-copy { padding: 32px clamp(22px, 5vw, 58px) 38px; }
+.eyebrow { color: #06716f; font-size: .71rem; letter-spacing: .18em; font-weight: 800; margin-bottom: 10px; }
+.hero h1 { margin-bottom: 8px; }
+.lead { max-width: 72ch; color: var(--muted); font-size: 1.02rem; margin-bottom: 0; }
+.section-wrap { padding-top: 48px; }
+.section-heading { margin-bottom: 18px; }
+.section-heading h2 { margin-bottom: 0; }
+.product-card { background: white; border-radius: var(--radius); border: 1px solid var(--line); padding: clamp(22px, 4vw, 38px); box-shadow: 0 8px 30px rgba(15,23,42,.035); }
+.product-heading { display: flex; align-items: center; gap: 17px; margin-bottom: 20px; }
+.product-initial { width: 67px; height: 67px; flex: 0 0 67px; display: grid; place-items: center; border-radius: 16px; background: #0f273a; color: #c5fcf5; font-weight: 800; font-size: 1.3rem; letter-spacing: -.06em; border: 1px solid #245067; }
+.product-label { color: #146e71; font-size: .67rem; letter-spacing: .16em; font-weight: 800; }
+.product-heading h3 { margin: 2px 0 0; }
+.feature-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 28px; }
+.feature-tags span { padding: 5px 13px; border: 1px solid #cce4e2; color: #255961; background: #f2fafa; border-radius: 999px; font-size: .82rem; }
+.product-actions { display: flex; gap: 16px 22px; align-items: center; flex-wrap: wrap; }
+.button-primary, .button-outline { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 11px 20px; border-radius: 11px; font-weight: 750; text-decoration: none; }
+.button-primary { color: #0b1729; background: var(--teal); }
+.button-primary:hover { background: #4bd0c0; color: #071a21; }
+.button-outline { color: white; border: 1px solid #5b768b; white-space: nowrap; }
+.button-outline:hover { color: var(--navy); background: white; border-color: white; }
+.text-link { font-weight: 650; }
+.contact-panel { margin-top: 38px; padding: 31px clamp(22px, 4vw, 40px); border-radius: var(--radius); background: var(--navy); color: #d4dfed; display: flex; gap: 24px; justify-content: space-between; align-items: center; }
+.contact-panel .eyebrow { color: var(--teal); }
+.contact-panel h2 { color: white; margin-bottom: 8px; }
+.contact-panel p { margin-bottom: 8px; }
+.contact-email { color: #88e6dd; font-weight: 650; overflow-wrap: anywhere; }
+.contact-email:hover { color: white; }
+.english-note { padding: 30px 4px 0; }
+.english-note h2 { font-size: 1.18rem; margin-bottom: 6px; }
+.english-note p { margin-bottom: 0; }
+.site-footer { background: var(--navy); color: #b2c3d4; padding: 34px 0 24px; border-top: 2px solid #1c6673; }
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-brand img { border-radius: 50%; width: 42px; height: 42px; }
+.footer-brand div { display: grid; gap: 1px; }
+.footer-brand strong { color: white; font-size: .94rem; letter-spacing: .15em; }
+.footer-brand span { font-size: .8rem; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 10px 25px; margin-top: 22px; }
+.site-footer a { color: #b7e5df; }
+.site-footer a:hover { color: white; }
+.copyright { margin: 24px 0 0; font-size: .8rem; color: #9cb0c4; }
+.policy-intro { padding: clamp(18px, 3vw, 34px) 0 28px; }
+.breadcrumb { display: inline-block; margin-bottom: 30px; font-size: .86rem; color: #366078; }
+.breadcrumb span { margin: 0 8px; color: #9caabc; }
+.policy-intro h1 { margin-bottom: 8px; }
+.policy-subtitle { color: var(--muted); }
+.policy-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 22px; color: var(--muted); font-size: .88rem; margin: 12px 0 0; }
+.policy-sheet { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(22px, 5vw, 48px); margin-bottom: 28px; box-shadow: 0 8px 28px rgba(15,23,42,.03); }
+.policy-sheet h2 { font-size: 1.2rem; padding-top: 14px; margin-bottom: 11px; }
+.policy-sheet h2:first-child { padding-top: 0; }
+.policy-sheet p { line-height: 1.98; }
+.policy-sheet p:last-child { margin-bottom: 0; }
+.english-policy { scroll-margin-top: 18px; }
+.english-policy .eyebrow { margin-bottom: 8px; }
+.english-policy .english-title { font-size: 1.65rem; color: var(--ink); padding-top: 0; }
+.english-policy .policy-meta { margin: 0 0 22px; }
+.back-link { margin-top: 32px; }
+@media (max-width: 700px) {
+  .site-header-inner { padding: 15px 0; align-items: flex-start; flex-direction: column; gap: 10px; }
+  .site-nav { width: 100%; gap: 6px 20px; }
+  .site-nav a { font-size: .85rem; }
+  .page-content { padding-top: 18px; padding-bottom: 46px; }
+  .hero-art img { height: 230px; aspect-ratio: auto; object-fit: cover; }
+  .hero-copy { padding: 25px 22px 30px; }
+  .section-wrap { padding-top: 32px; }
+  .contact-panel { flex-direction: column; align-items: stretch; }
+  .button-outline { align-self: flex-start; }
+  .policy-intro { padding-top: 15px; }
+}
+@media (max-width: 390px) {
+  .brand-lockup-text strong { font-size: 1rem; }
+  .brand-lockup-text small { font-size: .52rem; }
+  .brand-icon { width: 46px; height: 46px; }
+  .hero-art img { height: 200px; }
+  .product-actions { align-items: stretch; flex-direction: column; }
+  .button-primary { width: 100%; }
+  .feature-tags span { font-size: .76rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media print {
+  body { background: white; }
+  .site-header { background: white; border-bottom: 1px solid #aaa; }
+  .brand-lockup-text strong, .site-nav a { color: var(--navy); }
+  .site-footer { background: white; color: var(--ink); }
+  .site-footer a, .footer-brand strong { color: var(--ink); }
+  .hero, .product-card, .policy-sheet { box-shadow: none; }
+}
