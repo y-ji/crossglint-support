@@ -15,6 +15,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate HTML links and approved brand exports
         run: python3 scripts/check_site.py
+      - name: Install CJK fonts for accurate Japanese visual previews
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk
+          fc-cache -f
+
       - name: Prepare headless layout checks
         run: |
           python3 -m venv "$RUNNER_TEMP/site-layout-venv"

@@ -216,7 +216,9 @@ p { margin-bottom: 1em; }
   .page-home .contact-panel {
     grid-column: 2;
     grid-row: 2;
-    margin-top: 0;
+    /* Align the dark contact card with the white product card, rather than
+       with the section heading immediately above the product card. */
+    margin-top: 76px;
     padding: 27px clamp(24px, 3vw, 34px);
     min-width: 0;
     display: flex;
