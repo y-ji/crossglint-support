@@ -47,6 +47,8 @@ p { margin-bottom: 1em; }
 .hero-art { background: var(--navy-deep); }
 .hero-art img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover; }
 .hero-copy { padding: 32px clamp(22px, 5vw, 58px) 38px; }
+/* The approved wide banner stays exactly as before on phone/tablet. */
+.hero-art .hero-symbol, .hero-desktop-wordmark { display: none; }
 .eyebrow { color: #06716f; font-size: .71rem; letter-spacing: .18em; font-weight: 800; margin-bottom: 10px; }
 .hero h1 { margin-bottom: 8px; }
 .lead { max-width: 72ch; color: var(--muted); font-size: 1.02rem; margin-bottom: 0; }
@@ -102,6 +104,138 @@ p { margin-bottom: 1em; }
 .english-policy .english-title { font-size: 1.65rem; color: var(--ink); padding-top: 0; }
 .english-policy .policy-meta { margin: 0 0 22px; }
 .back-link { margin-top: 32px; }
+/* Desktop-only composition. Below 900px the existing mobile/tablet design is
+   deliberately unchanged: wide approved banner and single-column sections. */
+@media (min-width: 900px) {
+  .site-header-inner,
+  .site-footer-inner,
+  .page-content {
+    width: min(1160px, calc(100% - 64px));
+  }
+
+  /* Keep privacy policy prose readable on large displays. */
+  .page-content:not(.page-home) {
+    width: min(960px, calc(100% - 64px));
+  }
+
+  .page-home {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+    column-gap: 26px;
+    row-gap: 28px;
+    align-items: stretch;
+  }
+
+  .page-home .hero {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
+    min-height: 352px;
+  }
+
+  /* Reorder visually only on desktop: brand introduction left, approved
+     CG symbol right. DOM order remains banner then text on mobile. */
+  .page-home .hero-copy {
+    grid-area: 1 / 1;
+    align-self: center;
+    padding: 38px clamp(30px, 4vw, 58px);
+  }
+
+  .page-home .hero-art {
+    grid-area: 1 / 2;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    min-width: 0;
+    background:
+      radial-gradient(ellipse at 48% 70%, rgba(20,184,166,.14), transparent 53%),
+      linear-gradient(140deg, #091225, #122c48);
+    position: relative;
+  }
+
+  .page-home .hero-art::after {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 18%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,159,107,.42), transparent);
+    pointer-events: none;
+  }
+
+  .page-home .hero-art .hero-banner { display: none; }
+  .page-home .hero-art .hero-symbol {
+    display: block;
+    width: min(70%, 312px);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-home .hero-desktop-wordmark {
+    display: block;
+    color: var(--navy);
+    font-size: clamp(1.8rem, 3vw, 2.65rem);
+    font-weight: 820;
+    line-height: 1.2;
+    letter-spacing: .11em;
+    margin-bottom: 20px;
+    white-space: nowrap;
+  }
+
+  .page-home .hero h1 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+
+  .page-home .lead {
+    max-width: 44ch;
+    line-height: 1.8;
+  }
+
+  .page-home .section-wrap {
+    grid-column: 1;
+    grid-row: 2;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .page-home .section-heading { margin-bottom: 16px; }
+  .page-home .product-card {
+    flex: 1;
+    padding: 26px clamp(24px, 3vw, 34px);
+  }
+  .page-home .product-card p { max-width: 56ch; }
+
+  .page-home .contact-panel {
+    grid-column: 2;
+    grid-row: 2;
+    /* Align the dark contact card with the white product card, rather than
+       with the section heading immediately above the product card. */
+    margin-top: 76px;
+    padding: 27px clamp(24px, 3vw, 34px);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .page-home .contact-panel .button-outline { align-self: flex-start; }
+  .page-home .english-note {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    padding: 0 4px;
+    max-width: 860px;
+  }
+}
+
 @media (max-width: 700px) {
   .site-header-inner { padding: 15px 0; align-items: flex-start; flex-direction: column; gap: 10px; }
   .site-nav { width: 100%; gap: 6px 20px; }

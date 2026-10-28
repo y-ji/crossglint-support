@@ -58,3 +58,17 @@ language sections. Run `python3 scripts/check_site.py` for integrity checks.
 - The app's privacy policy URL should match the public site.
 - Public support contact (owner-approved): `crossglint.studio@gmail.com`.
 - No private personal data, QR inputs, or app source files are included.
+
+## Desktop-specific layout (2026-10)
+
+Home page keeps the approved mobile (below 900px) brand banner and vertical
+flow unchanged. Starting at **900px**, its hero becomes a two-column layout
+with an introduction on the left and the approved CG profile PNG on the
+right; the QR Maker card and the contact panel appear side by side. The
+privacy policy stays in a narrower, readable column. No JavaScript or
+third-party assets are needed.
+
+The CI workflow checks responsive geometry in a headless browser at **390,
+820, 900, and 1440 px**. It uploads desktop/phone homepage and policy-page
+screenshots as a `crossglint-desktop-mobile-preview` artifact for manual
+review before merging. Chrome/Chromium is used only in CI, not on the site.
