@@ -15,3 +15,21 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate HTML links and approved brand exports
         run: python3 scripts/check_site.py
+      - name: Prepare headless layout checks
+        run: |
+          python3 -m venv "$RUNNER_TEMP/site-layout-venv"
+          "$RUNNER_TEMP/site-layout-venv/bin/pip" install --disable-pip-version-check playwright==1.56.0
+
+      - name: Validate desktop and phone layouts
+        run: |
+          "$RUNNER_TEMP/site-layout-venv/bin/python" scripts/check_layouts.py \
+            --output "$RUNNER_TEMP/site-layout-previews"
+
+      - name: Upload visual review previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crossglint-desktop-mobile-preview
+          path: ${{ runner.temp }}/site-layout-previews/*.png
+          if-no-files-found: warn
+          retention-days: 7
