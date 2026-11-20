@@ -13,8 +13,8 @@ pull requests **before merging**; merging to `main` publishes site changes.
 
 ## Site files
 
-- `index.html` — CROSSGLINT-branded support homepage, QR Maker product card,
-  contact address, English support note
+- `index.html` — CROSSGLINT-branded support homepage, QR Maker and Silent Board
+  product cards, shared public contact address and English support note
 - `privacy.html` — bilingual privacy policy, shared branding and navigation
 - `style.css` — responsive styles; no JS, analytics, trackers, external fonts
 - `assets/crossglint-mark-400.png` — official approved CG profile raster
