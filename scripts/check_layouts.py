@@ -73,6 +73,7 @@ def validate(page, label, is_home, wide):
         assert not desktop_wordmark.is_visible()
     assert page.locator("a[href^='mailto:']").count() >= 2
     assert page.locator(".product-actions a[href='privacy.html']").count() == 1
+    assert page.locator(".product-actions a[href='silentboard-privacy.html']").count() == 1
 
 def run(output):
     assert BROWSER, "Google Chrome/Chromium required for browser layout checks"
@@ -95,7 +96,11 @@ def run(output):
                 is_mobile=name == "phone",
                 has_touch=name == "phone",
             )
-            for suffix, filename in (("", "index.html"), ("-privacy", "privacy.html")):
+            for suffix, filename in (
+                ("", "index.html"),
+                ("-privacy", "privacy.html"),
+                ("-silentboard-privacy", "silentboard-privacy.html"),
+            ):
                 page.goto((ROOT / filename).as_uri(), wait_until="load")
                 page.locator("img").first.wait_for(state="visible")
                 errors = page.evaluate(
