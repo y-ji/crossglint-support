@@ -38,8 +38,13 @@ def validate(page, label, is_home, wide):
 
     copy = bounds(page, ".hero-copy")
     art = bounds(page, ".hero-art")
-    product = bounds(page, ".product-card")
+    assert page.locator(".product-card").count() == 2, f"{label}: expected QR Maker + Silent Board cards"
+    product = bounds(page, ".product-card:first-of-type")
+    second = bounds(page, ".product-card:last-of-type")
     contact = bounds(page, ".contact-panel")
+    assert second["y"] >= product["y"] + product["height"] - 2, (
+        f"{label}: Silent Board card overlaps QR Maker"
+    )
     banner = page.locator(".hero-banner")
     symbol = page.locator(".hero-symbol")
     desktop_wordmark = page.locator(".hero-desktop-wordmark")
@@ -52,8 +57,8 @@ def validate(page, label, is_home, wide):
         assert copy["y"] + copy["height"] <= art["y"] + art["height"] + 3, (
             f"{label}: brand introduction extends beyond the hero art"
         )
-        assert product["x"] + product["width"] <= contact["x"] + 4, (
-            f"{label}: cards are not side by side"
+        assert second["x"] + second["width"] <= contact["x"] + 4, (
+            f"{label}: product column overlaps support contact column"
         )
         assert symbol.is_visible() and not banner.is_visible()
         assert desktop_wordmark.is_visible(), f"{label}: brand wordmark missing"
@@ -61,8 +66,8 @@ def validate(page, label, is_home, wide):
         assert art["y"] + art["height"] <= copy["y"] + 3, (
             f"{label}: original mobile banner order changed"
         )
-        assert product["y"] + product["height"] < contact["y"] + 4, (
-            f"{label}: phone cards must be stacked"
+        assert second["y"] + second["height"] <= contact["y"] + 4, (
+            f"{label}: phone app cards must be stacked above contact"
         )
         assert banner.is_visible() and not symbol.is_visible()
         assert not desktop_wordmark.is_visible()
