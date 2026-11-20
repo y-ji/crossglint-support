@@ -7,6 +7,7 @@ development brand.
 
 - Support: https://y-ji.github.io/crossglint-support/
 - QR Maker privacy policy (日本語 / English): https://y-ji.github.io/crossglint-support/privacy.html
+- Silent Board privacy policy (日本語 / English): https://y-ji.github.io/crossglint-support/silentboard-privacy.html
 
 Hosted by GitHub Pages from `main` / root. Review content and assets in
 pull requests **before merging**; merging to `main` publishes site changes.
@@ -15,7 +16,8 @@ pull requests **before merging**; merging to `main` publishes site changes.
 
 - `index.html` — CROSSGLINT-branded support homepage, QR Maker and Silent Board
   product cards, shared public contact address and English support note
-- `privacy.html` — bilingual privacy policy, shared branding and navigation
+- `privacy.html` — QR Maker bilingual privacy policy
+- `silentboard-privacy.html` — Silent Board bilingual policy, sourced from its local-only SwiftUI data storage
 - `style.css` — responsive styles; no JS, analytics, trackers, external fonts
 - `assets/crossglint-mark-400.png` — official approved CG profile raster
 - `assets/crossglint-header-1500x500.png` — approved quiet-horizon banner
@@ -41,7 +43,7 @@ repository. Do not change visibility of `ios-wifi-qr` or `crossglint-brand`.
 
 ## Local review
 
-Open `index.html` and `privacy.html` in a browser, or run a local static
+Open `index.html`, `privacy.html` and `silentboard-privacy.html` in a browser, or run a local static
 server to inspect the same relative assets and links:
 
 ```sh
