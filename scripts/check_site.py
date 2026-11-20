@@ -55,7 +55,7 @@ def check():
         assert (width, height) == (w, h), f"{name}: unexpected image dimensions"
         assert git_sha(data) == expected_sha, f"{name}: approved brand export was modified"
 
-    for filename in ("index.html", "privacy.html"):
+    for filename in ("index.html", "privacy.html", "silentboard-privacy.html"):
         source = (ROOT / filename).read_text(encoding="utf-8")
         parser = PageParser()
         parser.feed(source)
@@ -81,7 +81,9 @@ def check():
                 target = PageParser()
                 target.feed(local.read_text(encoding="utf-8"))
                 assert parsed.fragment in target.ids, f"{filename}: bad fragment {ref}"
-    assert 'id="english"' in (ROOT / "privacy.html").read_text(encoding="utf-8")
+    for filename in ("privacy.html", "silentboard-privacy.html"):
+        assert 'id="english"' in (ROOT / filename).read_text(encoding="utf-8")
+    assert 'href="silentboard-privacy.html"' in (ROOT / "index.html").read_text(encoding="utf-8")
     print("Site HTML, accessibility basics, local links and approved brand assets: OK")
 
 if __name__ == "__main__":
